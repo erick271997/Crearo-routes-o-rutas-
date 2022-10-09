@@ -19,9 +19,14 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+
+          <Route path="/blog" element={<BlogPage />}> 
+          <Route path=":slug" element={<BlogPost />} />
+          {/* esto es para poner que apararza el botton de volver y el conetino visble si salir de la ruta */}
+
+          </Route>
        {/*    rutas */}
+
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<p>Not found</p>} />
         </Routes>
