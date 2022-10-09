@@ -1,8 +1,8 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-/* esto HashRouter puede cambair por un Brows o Many */
 import  Menu  from './Menu';
 import  HomePage  from './HomePage';
 import  BlogPage  from './BlogPage';
+import  BlogPost  from './BlogPost';
 import  ProfilePage  from './ProfilePage';
 
 // /#/ -> Home
@@ -19,11 +19,11 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* esta es la ruta para que nos lleve el cuando hay varias seciones  */}
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+       {/*    rutas */}
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<p>Not found</p>} />
-          {/* esta cuando no encuentre la ruta */}
         </Routes>
       </HashRouter>
     </>
