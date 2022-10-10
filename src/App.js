@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import  Menu  from './Menu';
-import {AuthProvider} from './auth';
+import {AuthProvider, AuthRoute} from './auth';
 import  HomePage  from './HomePage';
 import  BlogPage  from './BlogPage';
 import  BlogPost  from './BlogPost';
@@ -32,8 +32,20 @@ function App() {
        {/*    rutas */}
 
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/logout" element={<LogouPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route
+           path="/logout"
+            element={
+            <AuthRoute>
+              <LogouPage/>
+            </AuthRoute> 
+            } />
+          <Route
+           path="/profile"
+            element={
+            <AuthRoute>
+              <ProfilePage/>
+            </AuthRoute> 
+            } />
           
           
           

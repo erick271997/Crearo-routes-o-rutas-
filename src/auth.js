@@ -1,5 +1,5 @@
 import React, {useContext }from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -31,7 +31,16 @@ function useAuth() {
     return auth;
     
 }
-export { AuthProvider,
+function AuthRoute  (props){
+    const auth = useAuth();
+    if (!auth.user) { // si no hay login 
+     return <Navigate to= "/login" />; // estos para que no puedan entrat sin login ya que podrian entrar con solo poner la url
+    }
+  return props.children;
+} 
+
+
+export { AuthProvider,AuthRoute,
 useAuth  }; 
 
 
